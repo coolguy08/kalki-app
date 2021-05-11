@@ -11,3 +11,78 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.search{
+  margin:10%;
+  margin-left: 20%;
+  margin-right: 20%;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.form-container{
+  margin:10%;
+  margin-left: 20%;
+  margin-right: 20%;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100vw;
+  height: 100vh;
+  font-size: 1.5rem;
+}
+.spinner-border
+{
+  width: 3rem;
+    height: 3rem;
+}
+.radio-grp{
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.1rem;
+  margin: 10px;
+  margin-bottom: 30px;
+}
+.paid{
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  margin-left: 6px;
+}
+
+.login-container{
+  margin:10%;
+  margin-left: 30%;
+  margin-right: 30%;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.button-fit{
+  width:100%
+}
+.havelead{
+  font-size: 1.1em;
+}
+.card{
+  margin: 20px;
+}
+.page-wrap {
+  min-height: 100vh;
+}
+@media only screen and (max-width: 600px) {
+  .search{
+    margin:30px;
+  }
+  .form-container{
+    margin: 30px;
+  }
+  .login-container{
+    margin: 30px;
+  }
+}
+
