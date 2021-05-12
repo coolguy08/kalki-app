@@ -129,15 +129,15 @@ function Signin() {
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">email</span>
+                    <span class="input-group-text" id="basic-addon1">Email</span>
                 </div>
-                <input type="email" value={email}onChange={(e)=>{setemail(e.target.value)}} class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1" required/>
+                <input type="email" value={email}onChange={(e)=>{setemail(e.target.value)}} class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" required/>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">password</span>
+                    <span class="input-group-text" id="basic-addon1">Password</span>
                 </div>
-                <input type="password" value={password} onChange={(e)=>{setpassword(e.target.value)}} class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1"/>
+                <input type="password" value={password} onChange={(e)=>{setpassword(e.target.value)}} class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1"/>
             </div>
             
             

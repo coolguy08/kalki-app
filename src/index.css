@@ -20,6 +20,13 @@ code {
   gap: 20px;
 }
 
+.box
+{
+  margin-top: 20px;
+  width: 100vw;
+  height: 100vh;
+}
+
 .form-container{
   margin:10%;
   margin-left: 20%;
@@ -62,6 +69,26 @@ code {
   gap: 20px;
 }
 
+.navbar-collapse{
+  margin-left:10px
+}
+.more{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.row{
+  margin-left: unset!important;
+  margin-right: unset!important;
+
+}
+.items-container{
+  width:100%
+}
+.btn-grp{
+  display:flex;
+  justify-content: space-around;
+}
 .button-fit{
   width:100%
 }

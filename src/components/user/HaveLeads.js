@@ -4,6 +4,7 @@ import { addlead } from "../../requests";
 import Alert from '../Alert';
 import Loading from '../Loading';
 import {LeadsSchema} from '../Validate';
+import Header from './Header';
 
 function HaveLeads() {
     const [name, setname] = useState('');
@@ -16,6 +17,7 @@ function HaveLeads() {
     const [res, setres] = useState({display:false})
     const [loading, setloading] = useState(false);
     const [landmark, setlandmark] = useState('');
+    const [description, setdescription] = useState('');
 
     const onStateChange=(e)=>{
         setstate(e.target.value);
@@ -25,7 +27,7 @@ function HaveLeads() {
 
   async function submit()
   {
-    const data={name,state,city,paid,token:localStorage.token,type:item,phone,landmark};
+    const data={name,state,city,paid,token:localStorage.token,type:item,phone,landmark,description};
 
     const valid=LeadsSchema.isValidSync(data);
     if(!valid)
@@ -47,6 +49,7 @@ function HaveLeads() {
       setname('');
       setphone('');
       setlandmark('');
+      setdescription('');
       setstate(States[0]);
     }
     else
@@ -72,6 +75,8 @@ function HaveLeads() {
   }
 
     return (
+      <>
+      <Header/>
         <div className="form-container">
             {res.display && <Alert time={5000} setdisplay={setres} {...res}/>}
             <div class="input-group mb-3">
@@ -85,7 +90,7 @@ function HaveLeads() {
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Phone</span>
                 </div>
-                <input type="text" value={phone} onChange={(e)=>{setphone(e.target.value)}} class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1"/>
+                <input type="number" value={phone} onChange={(e)=>{setphone(e.target.value)}} class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1"/>
             </div>
 
             <div class="input-group mb-3">
@@ -93,6 +98,12 @@ function HaveLeads() {
                     <span class="input-group-text" id="basic-addon1">Landmark</span>
                 </div>
                 <input type="text" value={landmark} onChange={(e)=>{setlandmark(e.target.value)}} class="form-control" placeholder="landmark" aria-label="Username" aria-describedby="basic-addon1"/>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Description</span>
+                </div>
+                <input type="text" value={description} onChange={(e)=>{setdescription(e.target.value)}} class="form-control" placeholder="description" aria-label="Username" aria-describedby="basic-addon1"/>
             </div>
 
              {
@@ -159,6 +170,7 @@ function HaveLeads() {
      <button type="button" class="btn btn-primary button-fit" onClick={submit}>Submit</button>
 
         </div>
+    </>
     )
 }
 

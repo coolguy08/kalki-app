@@ -9,10 +9,14 @@ import PrivateRoute from './PrivateRoute';
 
 import DashBoard from './components/user/Index';
 import HaveLeads from './components/user/HaveLeads';
+import MyLeads from './components/user/MyLeads';
 
+import Admin_index from './components/admin/Index';
+import Verifylead from './components/admin/Verifylead';
 
-import Admin_index from './components/admin/index';
 import Error404 from './components/Error404';
+
+
 
 function App() {
    
@@ -25,13 +29,16 @@ function App() {
         <Route exact path='/signin' component={Signin}/>
         <Route exact path='/register' component={Register}/>
         
+        
         <PrivateRoute  exact path='/dashboard' component={DashBoard} role='user'/>
         <PrivateRoute  exact path='/havelead' component={HaveLeads} role='user'/>
+        <PrivateRoute  exact path='/myleads' component={MyLeads} role='user'/>
 
 
 
 
         <PrivateRoute  exact path='/admin' component={Admin_index} role='admin'/>
+        <PrivateRoute  exact path='/admin/verifylead' component={Verifylead} role='admin'/>
         <Route component={Error404}/>
         
         

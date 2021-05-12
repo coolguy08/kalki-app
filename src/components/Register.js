@@ -79,9 +79,9 @@ function Register() {
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">password</span>
+                <span class="input-group-text" id="basic-addon1">Password</span>
             </div>
-            <input type="password" value={password}onChange={(e)=>{setpassword(e.target.value)}} class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1"/>
+            <input type="password" value={password}onChange={(e)=>{setpassword(e.target.value)}} class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1"/>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router'
-
+import {logout} from '../../requests'
 function Header() {
     const history=useHistory();
     return (
@@ -14,16 +14,16 @@ function Header() {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" onClick={()=>history.push("/")}>Home</a>
+                <a class="nav-link" onClick={()=>history.push("/dashboard")}>Dashboard</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" onClick={()=>history.push("/signin")}>Login</a>
+                <a class="nav-link" onClick={()=>history.push("/havelead")}>Have Leads?</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" onClick={()=>history.push("/register")}>Register</a>
+                <a class="nav-link" onClick={()=>history.push("/myleads")}>My Leads</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" onClick={()=>logout(history)}>Logout</a>
             </li>
             
             </ul>

@@ -23,9 +23,41 @@ async function getbypost(url,data)
 
 async function getLeads(data)
 {
-     var res = {};
+    var res = {};
+    let query=``;
+    if(data.state)
+    {
+        query+=`state=${data.state}&`
+    }
+    if(data.city)
+    {
+        query+=`city=${data.city}&`;
+    }
+    if(data.type)
+    {
+        query+=`type=${data.type}&`;
+    }
+    if(data.verified!=undefined)
+    {
+        query+=`verified=${data.verified}&`;
+    }
+    if(data.paid)
+    {
+        query+=`paid=${data.paid}&`
+    }
+    if(data.start==0 || data.start>0)
+    {
+        query+=`start=${data.start}&`
+    }
+    if(data.end)
+    {
+        query+=`end=${data.end}&`
+    }
+   
+
+
     try {
-        const d=await fetch(BASE+'/getleads?'+`state=${data.state}&city=${data.city}&type=${data.type}&verified=${data.verified}&paid=${data.paid}`);
+        const d=await fetch(BASE+'/getleads?'+query);
        res=await d.json();
     }
     catch (err) {
@@ -130,7 +162,60 @@ const logout=async(history)=>{
 }
 
 
+
+const verifylead=async(data)=>{
+    var res = {};
+    try {
+        res = await getbypost('/verifylead',data);
+    }
+    catch (err) {
+        console.log(err);
+        res.error = err
+    }
+    return res;
+}
+
+const removeleadbyadmin=async(data)=>{
+    var res = {};
+    try {
+        res = await getbypost('/removeleadbyadmin',data);
+    }
+    catch (err) {
+        console.log(err);
+        res.error = err
+    }
+    return res;
+}
+
+const removelead=async(data)=>{
+    var res = {};
+    try {
+        res = await getbypost('/removelead',data);
+    }
+    catch (err) {
+        console.log(err);
+        res.error = err
+    }
+    return res;
+}
+
+const getleadsbyemail=async(data)=>{
+    var res = {};
+    try {
+        res = await getbypost('/getleadsbyemail',data);
+    }
+    catch (err) {
+        console.log(err);
+        res.error = err
+    }
+    return res;
+}
+
+
+
 export{
     getLeads,check_session,
-    register,login,addlead,logout
+    register,login,addlead,logout,verifylead,
+    removelead,removeleadbyadmin,
+    getleadsbyemail
 }

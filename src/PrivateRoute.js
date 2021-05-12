@@ -27,11 +27,11 @@ function PrivateRoute(props) {
         
         return () => {
          
-          
+          setloading(true);
         }
         
        
-      },[])
+      },[props.component])
 
 
     if(loading)

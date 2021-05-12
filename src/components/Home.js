@@ -6,10 +6,14 @@ import Header from './Header';
 import Loading from './Loading';
 //import {getLocation} from './location';
 
+const increaseby=2;
+
 function Home() {
   const [counter, setcounter] = useState(0);
   const [loading, setloading] = useState(false);
   const [state, setstate] = useState(States[0]);
+  const [more, setmore] = useState(false);
+  const [havemore, sethavemore] = useState(true);
  
   const [item, setitem] = useState(Items[0]);
   const [verified, setverified] = useState(true);
@@ -21,15 +25,46 @@ function Home() {
   const [items, setitems] = useState([]);
   
 
+//when districts change district
+useEffect(() => {
+  setdistrict(districts[0]);
+  return () => {
+     // cleanup
+  }
+}, [districts])
 
   const onStateChange=(e)=>{
       setstate(e.target.value);
       setdistricts(Map[e.target.value]);
   }
-function more()
+
+async function loadmore()
 {
-  setcounter(counter+10);
+  setcounter(counter+increaseby);
+  setmore(true);
+  const data={state:state,city:district,verified:verified,paid:paid,type:item,start:counter+increaseby,end:counter+(2*increaseby)}
+  const d=await getLeads(data);
+  if(d && d.data.length==0)//if there is no data
+  {
+    sethavemore(false);
+    setmore(false);
+    return;
+  }
+
+  if(d)
+  {
+    let temp=items;
+    for(let i=0;i<d.data.length;i++)
+    {
+      temp.push(d.data[i]);
+    }
+    setitems(temp);
+  }
+ 
+  setmore(false);
+
 }
+
 const ondistrictChange=async(e)=>{
   setdistrict(e.target.value);
 }
@@ -41,14 +76,21 @@ const onitemchange=async(e)=>{
 async function search()
 {
     setloading(true);
-    const data={state:state,city:district,verified:verified,paid:paid,type:item}
+    setcounter(0);
+    sethavemore(true);
+    const data={state:state,city:district,verified:verified,paid:paid,type:item,start:0,end:increaseby}
     const d=await getLeads(data);
     if(d)
     {
       setitems(d.data);
+      if(d.data.length==0)
+      {
+        alert('No Data Found');
+      }
     }
     else
     {
+      alert('Server Error');
       console.log("Server Error Occured");
     }
     
@@ -141,13 +183,22 @@ if(loading)
       
       {items && items.length>0 && <DisplayItems items={items}/>}
 
-      
+      <div className="more">{items && items.length>0?more?<More/>:havemore?<a onClick={loadmore}>more</a>:'No data found':''}</div>
 
 
     
     </div>
    
   );
+}
+
+function More()
+{
+  return (
+    <div class="spinner-border text-primary" role="status">
+             <span class="sr-only">Loading...</span>
+            </div>
+  )
 }
 
 export default Home;
