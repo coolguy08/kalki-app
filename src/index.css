@@ -22,7 +22,7 @@ code {
 
 .box
 {
-  margin-top: 20px;
+  margin-top: 80px;
   width: 100vw;
   height: 100vh;
 }
@@ -103,13 +103,13 @@ code {
 }
 @media only screen and (max-width: 600px) {
   .search{
-    margin:30px;
+    margin:80px 30px;
   }
   .form-container{
-    margin: 30px;
+    margin:80px 30px;
   }
   .login-container{
-    margin: 30px;
+    margin: 80px 30px;
   }
 }
 

@@ -3,6 +3,7 @@ import {States,Map,Items} from '../../India';
 import {getLeads,verifylead,removeleadbyadmin} from '../../requests';
 import Loading from '../Loading';
 import moment from 'moment';
+import Header from './Header';
 //import {getLocation} from './location';
 
 const increaseby=2;
@@ -11,7 +12,7 @@ function Verifylead() {
   const [loading, setloading] = useState(false);
   const [more, setmore] = useState(false);
   const [havemore, sethavemore] = useState(true);
-const [verified, setverified] = useState(false);
+  const [verified, setverified] = useState(false);
 
   const [state, setstate] = useState(States[0]);
   const [districts, setdistricts] = useState(Map[state]);
@@ -37,7 +38,7 @@ const [verified, setverified] = useState(false);
   {
     setcounter(counter+increaseby);
     setmore(true);
-    const data={state:state,city:district,verified:verified,start:counter+increaseby,end:counter+(2*increaseby)}
+    const data={state:state,city:district,verified:verified,start:counter+increaseby,end:increaseby}
     const d=await getLeads(data);
     
     if(d && d.data.length==0)//if there is no data
@@ -98,7 +99,7 @@ if(loading)
   return (
   
     <div className="App">
-      
+      <Header/>
       <div className="search">
       
        {

@@ -14,6 +14,7 @@ function Home() {
   const [state, setstate] = useState(States[0]);
   const [more, setmore] = useState(false);
   const [havemore, sethavemore] = useState(true);
+  const [all, setall] = useState(false);
  
   const [item, setitem] = useState(Items[0]);
   const [verified, setverified] = useState(true);
@@ -24,6 +25,9 @@ function Home() {
   //this is for the reponse comming from api
   const [items, setitems] = useState([]);
   
+
+
+
 
 //when districts change district
 useEffect(() => {
@@ -42,7 +46,7 @@ async function loadmore()
 {
   setcounter(counter+increaseby);
   setmore(true);
-  const data={state:state,city:district,verified:verified,paid:paid,type:item,start:counter+increaseby,end:counter+(2*increaseby)}
+  const data={state:state,city:district,verified:verified,paid:paid,type:item,start:counter+increaseby,end:increaseby}
   const d=await getLeads(data);
   if(d && d.data.length==0)//if there is no data
   {
