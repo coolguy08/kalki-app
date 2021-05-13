@@ -17,7 +17,7 @@ function Home() {
   const [all, setall] = useState(false);
  
   const [item, setitem] = useState(Items[0]);
-  const [verified, setverified] = useState(true);
+  const [verified, setverified] = useState(false);
   const [paid, setpaid] = useState(false);
   const [districts, setdistricts] = useState(Map[state]);
   const [district, setdistrict] = useState(districts[0]);
@@ -25,9 +25,6 @@ function Home() {
   //this is for the reponse comming from api
   const [items, setitems] = useState([]);
   
-
-
-
 
 //when districts change district
 useEffect(() => {
@@ -46,7 +43,7 @@ async function loadmore()
 {
   setcounter(counter+increaseby);
   setmore(true);
-  const data={state:state,city:district,verified:verified,paid:paid,type:item,start:counter+increaseby,end:increaseby}
+  const data={state:state,city:district,verified:verified==false?undefined:true,paid:paid==false?undefined:true,type:item,start:counter+increaseby,end:increaseby,order:'desc',sortby:'likes'}
   const d=await getLeads(data);
   if(d && d.data.length==0)//if there is no data
   {
@@ -82,7 +79,7 @@ async function search()
     setloading(true);
     setcounter(0);
     sethavemore(true);
-    const data={state:state,city:district,verified:verified,paid:paid,type:item,start:0,end:increaseby}
+    const data={state:state,city:district,verified:verified==false?undefined:true,paid:paid==false?undefined:true,type:item,start:0,end:increaseby,order:'desc',sortby:'likes'}
     const d=await getLeads(data);
     if(d)
     {
@@ -199,7 +196,7 @@ if(loading)
 function More()
 {
   return (
-    <div class="spinner-border text-primary" role="status">
+            <div class="spinner-border text-primary" role="status">
              <span class="sr-only">Loading...</span>
             </div>
   )

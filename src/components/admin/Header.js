@@ -20,6 +20,9 @@ function Header() {
                 <a class="nav-link" onClick={()=>history.push("/admin/verifylead")}>Verify Leads</a>
             </li>
             <li class="nav-item active">
+                <a class="nav-link" onClick={()=>history.push("/admin/removeleads")}>Remove Leads</a>
+            </li>
+            <li class="nav-item active">
                 <a class="nav-link" onClick={()=>logout(history)}>Logout</a>
             </li>
             

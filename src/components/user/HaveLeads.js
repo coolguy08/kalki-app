@@ -95,15 +95,15 @@ function HaveLeads() {
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Landmark</span>
+                    <span class="input-group-text" id="basic-addon1">Address</span>
                 </div>
-                <input type="text" value={landmark} onChange={(e)=>{setlandmark(e.target.value)}} class="form-control" placeholder="landmark" aria-label="Username" aria-describedby="basic-addon1"/>
+                <input type="text" value={landmark} onChange={(e)=>{setlandmark(e.target.value)}} class="form-control" placeholder="Address" aria-label="Username" aria-describedby="basic-addon1"/>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Description</span>
                 </div>
-                <input type="text" value={description} onChange={(e)=>{setdescription(e.target.value)}} class="form-control" placeholder="description" aria-label="Username" aria-describedby="basic-addon1"/>
+                <input type="text" value={description} onChange={(e)=>{setdescription(e.target.value)}} class="form-control" placeholder="Description" aria-label="Username" aria-describedby="basic-addon1"/>
             </div>
 
              {

@@ -15,6 +15,7 @@ import Admin_index from './components/admin/Index';
 import Verifylead from './components/admin/Verifylead';
 
 import Error404 from './components/Error404';
+import RemoveLeads from './components/admin/RemoveLeads';
 
 
 
@@ -39,6 +40,7 @@ function App() {
 
         <PrivateRoute  exact path='/admin' component={Admin_index} role='admin'/>
         <PrivateRoute  exact path='/admin/verifylead' component={Verifylead} role='admin'/>
+        <PrivateRoute  exact path='/admin/removeleads' component={RemoveLeads} role='admin'/>
         <Route component={Error404}/>
         
         

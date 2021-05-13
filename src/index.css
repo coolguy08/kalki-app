@@ -72,10 +72,28 @@ code {
 .navbar-collapse{
   margin-left:10px
 }
+.like,.dislike{
+  font-size: 1.3em;
+  cursor: pointer;
+  outline: none;
+  border:none;
+  background:unset;
+  
+}
+
+
+
+.green{
+  color: green!important;
+}
+
+.red{
+  color: red;
+}
 .more{
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 .row{
   margin-left: unset!important;
@@ -97,6 +115,7 @@ code {
 }
 .card{
   margin: 20px;
+  border-radius: 20px;
 }
 .page-wrap {
   min-height: 100vh;

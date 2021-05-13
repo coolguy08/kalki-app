@@ -1,4 +1,5 @@
 const BASE="https://kalki-api.herokuapp.com/api";
+// const BASE="http://localhost:5000/api";
 
 
 
@@ -41,7 +42,7 @@ async function getLeads(data)
     {
         query+=`verified=${data.verified}&`;
     }
-    if(data.paid)
+    if(data.paid!=undefined)
     {
         query+=`paid=${data.paid}&`
     }
@@ -52,6 +53,14 @@ async function getLeads(data)
     if(data.end)
     {
         query+=`end=${data.end}&`
+    }
+    if(data.sortby)
+    {
+        query+=`sortby=${data.sortby}&`
+    }
+    if(data.order)
+    {
+        query+=`order=${data.order}&`
     }
    
 
@@ -212,10 +221,63 @@ const getleadsbyemail=async(data)=>{
 }
 
 
+const like=async(key)=>{
+    let res={};
+    try {
+        const d=await fetch(BASE+'/increaselikes?leadid='+key);
+       res=await d.json();
+    }
+    catch (err) {
+        console.log(err);
+        res.error = err
+    }
+    return res;
+}
+
+const dislike=async(key)=>{
+    let res={};
+    try {
+        const d=await fetch(BASE+'/increasedislikes?leadid='+key);
+       res=await d.json();
+    }
+    catch (err) {
+        console.log(err);
+        res.error = err
+    }
+    return res;
+}
+
+const removelike=async(key)=>{
+    let res={};
+    try {
+        const d=await fetch(BASE+'/decreaselikes?leadid='+key);
+       res=await d.json();
+    }
+    catch (err) {
+        console.log(err);
+        res.error = err
+    }
+    return res;
+}
+
+const removedislike=async(key)=>{
+    let res={};
+    try {
+        const d=await fetch(BASE+'/decreasedislikes?leadid='+key);
+       res=await d.json();
+    }
+    catch (err) {
+        console.log(err);
+        res.error = err
+    }
+    return res;
+}
+
 
 export{
     getLeads,check_session,
     register,login,addlead,logout,verifylead,
     removelead,removeleadbyadmin,
-    getleadsbyemail
+    getleadsbyemail,
+    like,dislike,removelike,removedislike
 }

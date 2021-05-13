@@ -1,13 +1,13 @@
 import React,{useState,useEffect} from 'react';
 import {States,Map,Items} from '../../India';
-import {getLeads,verifylead,removeleadbyadmin} from '../../requests';
+import {getLeads,removeleadbyadmin} from '../../requests';
 import Loading from '../Loading';
 import moment from 'moment';
 import Header from './Header';
 //import {getLocation} from './location';
 
 const increaseby=2;
-function Verifylead() {
+function RemoveLeads() {
   const [counter, setcounter] = useState(0);
   const [loading, setloading] = useState(false);
   const [more, setmore] = useState(false);
@@ -38,7 +38,7 @@ function Verifylead() {
   {
     setcounter(counter+increaseby);
     setmore(true);
-    const data={state:state,city:district,verified:verified,start:counter+increaseby,end:increaseby}
+    const data={state:state,city:district,start:counter+increaseby,end:increaseby,sortby:'dislikes',order:'desc'}
     const d=await getLeads(data);
     
     if(d && d.data.length==0)//if there is no data
@@ -73,7 +73,7 @@ async function search()
     setloading(true);
     setcounter(0);
     sethavemore(true);
-    const data={state:state,city:district,verified:verified,start:0,end:increaseby}
+    const data={state:state,city:district,start:0,end:increaseby,sortby:'dislikes',order:'desc'}
     const d=await getLeads(data);
     if(d)
     {
@@ -163,7 +163,7 @@ function Display(props)
 {
     const [items, setitems] = useState(props.items)
     const [removing, setremoving] = useState(false);
-    const [verifying, setverifying] = useState(false)
+    
     async function remove(key)
     {
         setremoving(key);
@@ -182,32 +182,14 @@ function Display(props)
         
     }
 
-    async function verify(key)
-    {
-        setverifying(key);
-        const d=await verifylead({leadid:key,token:localStorage.token});
-        if(d && d.status)
-        {
-            alert('verified');
-            setitems(items.filter(function(val){return val._id!=key}));
-        }
-        else
-        {
-            alert('error occured');
-        }
-        setverifying('');
-        
-    }
-
    
     return (
        <>
        <div className="items-container">
-         
        <div className="row">
        {
            items.map((item)=>{
-               return <Card  data={item} remove={remove} verify={verify} verifying={verifying} removing={removing}/>;
+               return <Card  data={item} remove={remove}  removing={removing}/>;
            })
        }
        </div>
@@ -215,6 +197,7 @@ function Display(props)
        </>
     )
 }
+
 
 function Card(props)
 {
@@ -231,7 +214,7 @@ function Card(props)
           {props.data.paid?<p class="card-text">💸 Paid</p>:<p class="card-text">🆓 Free</p>}
           <p class="card-text">{props.data.description}</p>
           <div className="btn-grp">
-          <button class="btn btn-success" onClick={()=>props.verify(props.data._id)}>{props.verifying==props.data._id?'Verifying...':'verify'}</button>
+          
           <button class="btn btn-danger" onClick={()=>props.remove(props.data._id)}>{props.removing==props.data._id?'Removing...':'remove'}</button>
           </div>
           
@@ -250,7 +233,6 @@ function Card(props)
     )
 
 }
-
 function More()
 {
   return (
@@ -260,4 +242,4 @@ function More()
   )
 }
 
-export default Verifylead;
+export default RemoveLeads;
