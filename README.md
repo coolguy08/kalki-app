@@ -1,10 +1,18 @@
-# Kalki App Frontend
+# Kalki App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Project live at https://kalki-app.herokuapp.com/
 
-## Available Scripts
+### `Features`
 
-In the project directory, you can run:
+## Get Updates About Covid Resources in your area
+
+1. beds  
+2. plasma  
+3. vaccination  
+4. Ambulance  
+
+## Admin Panel For Leads Update
+
 
 ### `yarn start`
 
