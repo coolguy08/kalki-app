@@ -10,7 +10,6 @@ function PrivateRoute(props) {
     useEffect(() => {
         async function fetchData() {
           const d=await check_session(localStorage.token,props.role)
-          //console.log(d);
           setis_logged_in(d.is_session_valid)
           setloading(false)
           
@@ -45,7 +44,7 @@ function PrivateRoute(props) {
     else
     {
       localStorage.removeItem('token');
-      return <Redirect to='/signin'/>
+      return <Redirect to='/signin?refer=1'/>
     }
     
 }

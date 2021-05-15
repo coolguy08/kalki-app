@@ -50,7 +50,7 @@ function Register() {
         }
         else
         {
-            setres({display:true,msg:d.msg,short:'Oops!',type:'danger'})
+            setres({display:true,msg:d==''?'No Internet':d.msg,short:'Oops!',type:'danger'})
             
         }
         setloading(false);
@@ -75,7 +75,7 @@ function Register() {
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Email</span>
             </div>
-            <input type="email" value={email}onChange={(e)=>{setemail(e.target.value)}} class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1" required/>
+            <input type="email" value={email}onChange={(e)=>{setemail(e.target.value)}} class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" required/>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -87,7 +87,7 @@ function Register() {
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Confirm-password</span>
             </div>
-            <input type="password" value={repassword}onChange={(e)=>{setrepassword(e.target.value)}} class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1"/>
+            <input type="password" value={repassword}onChange={(e)=>{setrepassword(e.target.value)}} class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1"/>
         </div>
        
         <button type="button" class="btn btn-primary button-fit" onClick={submit}>Submit</button>

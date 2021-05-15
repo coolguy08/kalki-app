@@ -6,7 +6,7 @@ function Header() {
     return (
     <div>
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;Kalki</a>
+        <a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;Corona Warriors</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -15,6 +15,9 @@ function Header() {
             <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
                 <a class="nav-link" onClick={()=>history.push("/")}>Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" onClick={()=>history.push("/havelead")}>Have Leads?</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" onClick={()=>history.push("/signin")}>Login</a>

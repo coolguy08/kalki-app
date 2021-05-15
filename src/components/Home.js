@@ -6,7 +6,7 @@ import Header from './Header';
 import Loading from './Loading';
 //import {getLocation} from './location';
 
-const increaseby=2;
+const increaseby=10;
 
 function Home() {
   const [counter, setcounter] = useState(0);
@@ -81,6 +81,12 @@ async function search()
     sethavemore(true);
     const data={state:state,city:district,verified:verified==false?undefined:true,paid:paid==false?undefined:true,type:item,start:0,end:increaseby,order:'desc',sortby:'likes'}
     const d=await getLeads(data);
+    if(d.error)
+    {
+      alert('Error occured');
+      setloading(false);
+      return;
+    }
     if(d)
     {
       setitems(d.data);

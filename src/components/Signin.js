@@ -15,6 +15,18 @@ function Signin() {
     const [logged_in, setlogged_in] = useState(false);
    
    const history=useHistory();
+
+   //to check where the request come from
+   useEffect(() => {
+       const url=new URL(window.location.href);
+       if(url.search=='?refer=1')
+       {
+        setres({display:true,msg:"Login First",short:'Error!',type:'danger'});
+       }
+       return () => {
+           
+       }
+   }, [])
     //check session 
     useEffect(() => {
         async function fetch_data()

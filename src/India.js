@@ -645,7 +645,7 @@ const Items=[
   'Oxygen',
   'Hospital Beds',
   'Medicines/Injections',
-  'Blood',
+  'Plasma',
   'Home Care',
   'Testing',
   'Food/Tiffin',

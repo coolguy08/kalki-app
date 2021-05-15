@@ -6,7 +6,7 @@ import moment from 'moment';
 import Header from './Header';
 //import {getLocation} from './location';
 
-const increaseby=2;
+const increaseby=10;
 function RemoveLeads() {
   const [counter, setcounter] = useState(0);
   const [loading, setloading] = useState(false);

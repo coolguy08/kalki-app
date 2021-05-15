@@ -1,12 +1,22 @@
-# Kalki App Frontend
+# Kalki App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Project live at https://kalki-app.herokuapp.com/
 
-## Available Scripts
+### `Features`
 
-In the project directory, you can run:
+## Get Updates About Covid Resources in your Area
 
-### `yarn start`
+1. beds  
+2. plasma  
+3. vaccination  
+4. Ambulance  
+
+
+
+
+
+
+### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

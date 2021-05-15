@@ -6,7 +6,7 @@ import Header from './Header';
 import Loading from '../Loading';
 //import {getLocation} from './location';
 
-const increaseby=2;
+const increaseby=10;
 
 function Index() {
   const [counter, setcounter] = useState(0);
