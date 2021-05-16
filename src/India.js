@@ -1,5 +1,6 @@
 const Map={
   'Andhra Pradesh': [
+    'All',
     'Anantapur',     'Chittoor',
     'East Godavari', 'Guntur',
     'Krishna',       'Kurnool',
@@ -9,6 +10,7 @@ const Map={
     'YSR Kadapa'
   ],
   'Arunachal Pradesh': [
+    'All',
     'Tawang',          'West Kameng',
     'East Kameng',     'Papum Pare',
     'Kurung Kumey',    'Kra Daadi',
@@ -22,6 +24,7 @@ const Map={
     'Longding'
   ],
   'Assam': [
+    'All',
     'Baksa',
     'Barpeta',
     'Biswanath',
@@ -57,6 +60,7 @@ const Map={
     'West Karbi Anglong'
   ],
   Bihar: [
+    'All',
     'Araria',
     'Arwal',
     'Aurangabad',
@@ -98,6 +102,7 @@ const Map={
   ],
   'Chandigarh (UT)': [ 'Chandigarh' ],
   Chhattisgarh: [
+    'All',
     'Balod',
     'Baloda Bazar',
     'Balrampur',
@@ -126,9 +131,10 @@ const Map={
     'Surajpur  ',
     'Surguja'
   ],
-  'Dadra and Nagar Haveli (UT)': [ 'Dadra & Nagar Haveli' ],
-  'Daman and Diu (UT)': [ 'Daman', 'Diu' ],
+  'Dadra and Nagar Haveli (UT)': [ 'All','Dadra & Nagar Haveli' ],
+  'Daman and Diu (UT)': ['All', 'Daman', 'Diu' ],
   'Delhi (NCT)': [
+    'All',
     'Central Delhi',
     'East Delhi',
     'New Delhi',
@@ -141,8 +147,9 @@ const Map={
     'South West  Delhi',
     'West Delhi'
   ],
-  Goa: [ 'North Goa', 'South Goa' ],
+  Goa: ['All', 'North Goa', 'South Goa' ],
   Gujarat: [
+    'All',
     'Ahmedabad',
     'Amreli',
     'Anand',
@@ -178,6 +185,7 @@ const Map={
     'Valsad'
   ],
   Haryana: [
+    'All',
     'Ambala',        'Bhiwani',
     'Charkhi Dadri', 'Faridabad',
     'Fatehabad',     'Gurgaon',
@@ -191,6 +199,7 @@ const Map={
     'Sonipat',       'Yamunanagar'
   ],
   'Himachal Pradesh': [
+    'All',
     'Bilaspur',
     'Chamba',
     'Hamirpur',
@@ -205,6 +214,7 @@ const Map={
     'Una'
   ],
   'Jammu and Kashmir': [
+    'All',
     'Anantnag', 'Bandipore', 'Baramulla',
     'Budgam',   'Doda',      'Ganderbal',
     'Jammu',    'Kargil',    'Kathua',
@@ -215,6 +225,7 @@ const Map={
     'Udhampur'
   ],
   Jharkhand: [
+    'All',
     'Bokaro',    'Chatra',
     'Deoghar',   'Dhanbad',
     'Dumka',     'East Singhbhum',
@@ -229,6 +240,7 @@ const Map={
     'Simdega',   'West Singhbhum'
   ],
   Karnataka: [
+    'All',
     'Bagalkot',
     'Ballari (Bellary)',
     'Belagavi (Belgaum)',
@@ -261,6 +273,7 @@ const Map={
     'Yadgir'
   ],
   Kerala: [
+    'All',
     'Alappuzha',
     'Ernakulam',
     'Idukki',
@@ -277,6 +290,7 @@ const Map={
     'Wayanad'
   ],
   'Lakshadweep (UT)': [
+    'All',
     'Agatti',    'Amini',
     'Androth',   'Bithra',
     'Chethlath', 'Kavaratti',
@@ -284,6 +298,7 @@ const Map={
     'Kilthan',   'Minicoy'
   ],
   'Madhya Pradesh': [
+    'All',
     'Agar Malwa',  'Alirajpur', 'Anuppur',     'Ashoknagar',
     'Balaghat',    'Barwani',   'Betul',       'Bhind',
     'Bhopal',      'Burhanpur', 'Chhatarpur',  'Chhindwara',
@@ -299,6 +314,7 @@ const Map={
     'Ujjain',      'Umaria',    'Vidisha'
   ],
   Maharashtra: [
+    'All',
     'Ahmednagar', 'Akola',       'Amravati',
     'Aurangabad', 'Beed',        'Bhandara',
     'Buldhana',   'Chandrapur',  'Dhule',
@@ -313,6 +329,7 @@ const Map={
     'Wardha',     'Washim',      'Yavatmal'
   ],
   Manipur: [
+    'All',
     'Bishnupur',     'Chandel',
     'Churachandpur', 'Imphal East',
     'Imphal West',   'Jiribam',
@@ -323,6 +340,7 @@ const Map={
     'Thoubal',       'Ukhrul'
   ],
   Meghalaya: [
+    'All',
     'East Garo Hills',
     'East Jaintia Hills',
     'East Khasi Hills',
@@ -336,12 +354,14 @@ const Map={
     'West Khasi Hills'
   ],
   Mizoram: [
+    'All',
     'Aizawl',  'Champhai',
     'Kolasib', 'Lawngtlai',
     'Lunglei', 'Mamit',
     'Saiha',   'Serchhip'
   ],
   Nagaland: [
+    'All',
     'Dimapur',    'Kiphire',
     'Kohima',     'Longleng',
     'Mokokchung', 'Mon',
@@ -350,6 +370,7 @@ const Map={
     'Zunheboto'
   ],
   Odisha: [
+    'All',
     'Angul',       'Balangir',
     'Balasore',    'Bargarh',
     'Bhadrak',     'Boudh',
@@ -368,6 +389,7 @@ const Map={
   ],
   'Puducherry (UT)': [ 'Karaikal', 'Mahe', 'Pondicherry', 'Yanam' ],
   Punjab: [
+    'All',
     'Amritsar',
     'Barnala',
     'Bathinda',
@@ -392,6 +414,7 @@ const Map={
     'Tarn Taran'
   ],
   Rajasthan: [
+    'All',
     'Ajmer',          'Alwar',      'Banswara',
     'Baran',          'Barmer',     'Bharatpur',
     'Bhilwara',       'Bikaner',    'Bundi',
@@ -404,8 +427,9 @@ const Map={
     'Sawai Madhopur', 'Sikar',      'Sirohi',
     'Sri Ganganagar', 'Tonk',       'Udaipur'
   ],
-  Sikkim: [ 'East Sikkim', 'North Sikkim', 'South Sikkim', 'West Sikkim' ],
+  Sikkim: ['All', 'East Sikkim', 'North Sikkim', 'South Sikkim', 'West Sikkim' ],
   'Tamil Nadu': [
+    'All',
     'Ariyalur',
     'Chennai',
     'Coimbatore',
@@ -440,6 +464,7 @@ const Map={
     'Virudhunagar'
   ],
   Telangana: [
+    'All',
     'Adilabad',
     'Bhadradri Kothagudem',
     'Hyderabad',
@@ -473,6 +498,7 @@ const Map={
     'Yadadri Bhuvanagiri'
   ],
   Tripura: [
+    'All',
     'Dhalai',
     'Gomati',
     'Khowai',
@@ -483,6 +509,7 @@ const Map={
     'West Tripura'
   ],
   Uttarakhand: [
+    'All',
     'Almora',
     'Bageshwar',
     'Chamoli',
@@ -498,6 +525,7 @@ const Map={
     'Uttarkashi'
   ],
   'Uttar Pradesh': [
+    'All',
     'Agra',
     'Aligarh',
     'Allahabad',
@@ -575,6 +603,7 @@ const Map={
     'Varanasi'
   ],
   'West Bengal': [
+    'All',
     'Alipurduar',
     'Bankura',
     'Birbhum',

@@ -26,16 +26,9 @@ function Home() {
   const [items, setitems] = useState([]);
   
 
-//when districts change district
-useEffect(() => {
-  setdistrict(districts[0]);
-  return () => {
-     // cleanup
-  }
-}, [districts])
-
-  const onStateChange=(e)=>{
+const onStateChange=(e)=>{
       setstate(e.target.value);
+      setdistrict(Map[e.target.value][0]);
       setdistricts(Map[e.target.value]);
   }
 
@@ -140,7 +133,7 @@ if(loading)
         <label class="input-group-text" for="inputGroupSelect02" >Region/City</label>
       </div>
      <select class="custom-select" id="inputGroupSelect02" name="district" onChange={ondistrictChange}>
-      
+           
       {
         districts.map((val)=>{
           return <option selected={district==val}value={val}>{val}</option>

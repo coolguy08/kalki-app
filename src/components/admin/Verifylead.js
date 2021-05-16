@@ -21,16 +21,10 @@ function Verifylead() {
   //this is for the reponse comming from api
   const [items, setitems] = useState([]);
 
-  //when districts change district
-  useEffect(() => {
-      setdistrict(districts[0]);
-      return () => {
-         // cleanup
-      }
-  }, [districts])
-
+ 
   const onStateChange=(e)=>{
       setstate(e.target.value);
+      setdistrict(Map[e.target.value][0]);
       setdistricts(Map[e.target.value]);
   }
 
@@ -227,6 +221,7 @@ function Card(props)
           <h5 class="card-title">{props.data.type}</h5>
           <h6 class="card-text">Name : {props.data.name}</h6>
           <p class="card-text">{props.data.landmark}</p>
+          <p class="card-text">{props.data.city=="All"?"Available in All city":props.data.city}</p>
           <p class="card-text"><a href={`tel:`+props.data.phone}>📞 {props.data.phone}</a></p>
           {props.data.paid?<p class="card-text">💸 Paid</p>:<p class="card-text">🆓 Free</p>}
           <p class="card-text">{props.data.description}</p>

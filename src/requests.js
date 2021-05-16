@@ -30,7 +30,7 @@ async function getLeads(data)
     {
         query+=`state=${data.state}&`
     }
-    if(data.city)
+    if(data.city && data.city!="All")
     {
         query+=`city=${data.city}&`;
     }

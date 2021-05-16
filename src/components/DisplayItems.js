@@ -107,8 +107,12 @@ function Card(props)
           <h5 class="card-title">{props.data.type}</h5>
           <h6 class="card-text">Name : {props.data.name}</h6>
           <p class="card-text">{props.data.landmark}</p>
+          <p class="card-text">{props.data.city=="All"?"Available in All city":props.data.city}</p>
+          <div class="btn-grp">
           {props.data.paid?<p class="card-text">💸 Paid</p>:<p class="card-text">🆓 Free</p>}
          {props.data.verified? <p class="card-text">✔️ verified</p>:<p class="card-text">❌ Not verified</p>}
+          </div>
+          
           <p class="card-text"><a href={`tel:`+props.data.phone}>📞 {props.data.phone}</a></p>
           <p class="card-text">{props.data.description}</p>
           

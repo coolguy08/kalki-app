@@ -21,7 +21,7 @@ function HaveLeads() {
 
     const onStateChange=(e)=>{
         setstate(e.target.value);
-        setcity(null);
+        setcity(Map[e.target.value][0]);
         setdistricts(Map[e.target.value]);
     }
 

@@ -6,7 +6,7 @@ import Header from './Header';
 
 
 function MyLeads() {
-  const [counter, setcounter] = useState(0);
+  
   const [loading, setloading] = useState(false);
   
   //this is for the reponse comming from api
@@ -18,14 +18,6 @@ function MyLeads() {
         
      }
  }, [])
-
-
-function more()
-{
-  setcounter(counter+10);
-}
-
-
 
 
 async function search()
