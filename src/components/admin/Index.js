@@ -14,7 +14,7 @@ function Index() {
   const [state, setstate] = useState(States[0]);
   const [more, setmore] = useState(false);
   const [havemore, sethavemore] = useState(true);
-  const [all, setall] = useState(false);
+  
  
   const [item, setitem] = useState(Items[0]);
   const [verified, setverified] = useState(false);
@@ -26,16 +26,9 @@ function Index() {
   const [items, setitems] = useState([]);
   
 
-//when districts change district
-useEffect(() => {
-  setdistrict(districts[0]);
-  return () => {
-     // cleanup
-  }
-}, [districts])
-
-  const onStateChange=(e)=>{
+const onStateChange=(e)=>{
       setstate(e.target.value);
+      setdistrict(Map[e.target.value][0]);
       setdistricts(Map[e.target.value]);
   }
 
@@ -81,6 +74,12 @@ async function search()
     sethavemore(true);
     const data={state:state,city:district,verified:verified==false?undefined:true,paid:paid==false?undefined:true,type:item,start:0,end:increaseby,order:'desc',sortby:'likes'}
     const d=await getLeads(data);
+    if(d.error)
+    {
+      alert('Error occured');
+      setloading(false);
+      return;
+    }
     if(d)
     {
       setitems(d.data);
@@ -103,7 +102,7 @@ async function search()
 if(loading)
 {
 
-  return <Loading/>;
+  return <><Header/><Loading/></>;
 }
 
   return (
@@ -117,11 +116,11 @@ if(loading)
         <div class="input-group-prepend">
           <label class="input-group-text" for="inputGroupSelect01">State</label>
         </div>
-        <select class="custom-select" id="inputGroupSelect01" name="state" onChange={onStateChange}> 
+        <select class="custom-select" id="inputGroupSelect01" value={state} name="state" onChange={onStateChange}> 
          
           {
             States.map((val)=>{
-              return <option selected={state==val} value={val}>{val}</option>
+              return <option key={val} value={val}>{val}</option>
             })
           }
         </select>
@@ -133,11 +132,11 @@ if(loading)
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect02" >Region/City</label>
       </div>
-     <select class="custom-select" id="inputGroupSelect02" name="district" onChange={ondistrictChange}>
-      
+     <select class="custom-select" id="inputGroupSelect02" value={district} name="district" onChange={ondistrictChange}>
+           
       {
         districts.map((val)=>{
-          return <option selected={district==val}value={val}>{val}</option>
+          return <option key={val} value={val}>{val}</option>
         })
       }
       </select>
@@ -147,13 +146,13 @@ if(loading)
       {
       district && <div class="input-group mb-3 lg-6">
       <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect02" >Looking For ?</label>
+        <label class="input-group-text" for="inputGroupSelect03" >Looking For ?</label>
       </div>
-     <select class="custom-select" id="inputGroupSelect02" name="district" onChange={onitemchange}>
+     <select class="custom-select" id="inputGroupSelect03" value={item} name="district" onChange={onitemchange}>
       
       {
         Items.map((val)=>{
-          return <option selected={val==item} value={val}>{val}</option>
+          return <option  key={val} value={val}>{val}</option>
         })
       }
       </select>
@@ -192,7 +191,6 @@ if(loading)
    
   );
 }
-
 function More()
 {
   return (

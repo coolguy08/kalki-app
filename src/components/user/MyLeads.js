@@ -43,7 +43,7 @@ async function search()
 if(loading)
 {
 
-  return <Loading/>;
+  return <><Header/><Loading/></>;
 }
 
   return (
@@ -52,7 +52,7 @@ if(loading)
       
      <Header/>
       <div className="box">
-      {items && items.length>0?<Display items={items}/>:<div><p>No Data Found</p></div>}
+      {items && items.length>0?<Display items={items}/>:<center><div><p>No Data Found</p></div></center>}
       </div>
   </div>
    
@@ -90,7 +90,7 @@ function Display(props)
        <div className="row">
        {
            items.map((item)=>{
-               return <Card  data={item} remove={remove}  removing={removing}/>;
+               return <Card  key={item._id} data={item} remove={remove}  removing={removing}/>;
            })
        }
        </div>
@@ -107,16 +107,25 @@ function Card(props)
         <div class="card text-center">
         
         <div class="card-body">
-          <h5 class="card-title">{props.data.name}</h5>
+        <h5 class="card-title">{props.data.type}</h5>
+          <h6 class="card-text">Name : {props.data.name}</h6>
           <p class="card-text">{props.data.landmark}</p>
           <p class="card-text">{props.data.phone}</p>
-          <p class="card-text">{props.data.paid?'Paid':'Free'}</p>
+          <div class="btn-grp">
+          {props.data.paid?<p class="card-text">💸 Paid</p>:<p class="card-text">🆓 Free</p>}
+         {props.data.verified? <p class="card-text">✔️ verified</p>:<p class="card-text">❌ Not verified</p>}
+          </div>
           <div className="btn-grp">
-          <button class="btn btn-danger" onClick={()=>props.remove(props.data._id)}>{props.removing==props.data._id?'Removing...':'remove'}</button>
+          <button class="btn btn-danger" onClick={()=>props.remove(props.data._id)}>{props.removing==props.data._id?'Removing...':'Remove'}</button>
           </div>
           
         </div>
         <div class="card-footer text-muted">
+            <div className="btn-grp">
+                  <div>{props.data.likes} likes</div>
+                  <div>{props.data.dislikes} dislikes</div>
+                </div>
+            <br/>
           {moment(new Date(props.data.created_on)).fromNow()}
         </div>
       </div>

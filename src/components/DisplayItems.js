@@ -9,7 +9,7 @@ function DisplayItems({items}) {
         {
         
         items.map((item)=>{
-            return <Card data={item}/>
+            return <Card key={item._id} data={item}/>
         })
             
 

@@ -71,7 +71,7 @@ function HaveLeads() {
 
   if(loading)
   {
-    return <Loading/>;
+    return <><Header/><Loading/></>;
   }
 
     return (

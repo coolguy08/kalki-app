@@ -1,5 +1,5 @@
-import React,{useState,useEffect} from 'react';
-import {States,Map,Items} from '../../India';
+import React,{useState} from 'react';
+import {States,Map} from '../../India';
 import {getLeads,removeleadbyadmin} from '../../requests';
 import Loading from '../Loading';
 import moment from 'moment';
@@ -12,7 +12,7 @@ function RemoveLeads() {
   const [loading, setloading] = useState(false);
   const [more, setmore] = useState(false);
   const [havemore, sethavemore] = useState(true);
-  const [verified, setverified] = useState(false);
+  
 
   const [state, setstate] = useState(States[0]);
   const [districts, setdistricts] = useState(Map[state]);
@@ -92,7 +92,7 @@ async function search()
 if(loading)
 {
 
-  return <Loading/>;
+  return <><Header/><Loading/></>;
 }
 
   return (
@@ -106,11 +106,11 @@ if(loading)
         <div className="input-group-prepend">
           <label className="input-group-text" htmlFor="inputGroupSelect01">State</label>
         </div>
-        <select className="custom-select"  id="inputGroupSelect01" name="state" onChange={onStateChange}> 
+        <select className="custom-select"  value={state} id="inputGroupSelect01" name="state" onChange={onStateChange}> 
          
           {
             States.map((val)=>{
-              return <option  selected={state===val}value={val} key={val}>{val}</option>
+              return <option  key={val} value={val} key={val}>{val}</option>
             })
           }
         </select>
@@ -126,7 +126,7 @@ if(loading)
       
       {
         districts.map((val)=>{
-          return <option selected={district===val} value={val} key={val}>{val}</option>
+          return <option key={val} value={val} key={val}>{val}</option>
         })
       }
       </select>
@@ -184,7 +184,7 @@ function Display(props)
        <div className="row">
        {
            items.map((item)=>{
-               return <Card  data={item} remove={remove}  removing={removing}/>;
+               return <Card  key={item._id} data={item} remove={remove}  removing={removing}/>;
            })
        }
        </div>
@@ -216,7 +216,7 @@ function Card(props)
           <p class="card-text">{props.data.description}</p>
           <div className="btn-grp">
           
-          <button class="btn btn-danger" onClick={()=>props.remove(props.data._id)}>{props.removing==props.data._id?'Removing...':'remove'}</button>
+          <button class="btn btn-danger" onClick={()=>props.remove(props.data._id)}>{props.removing==props.data._id?'Removing...':'Remove'}</button>
           </div>
           
         </div>

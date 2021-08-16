@@ -1,5 +1,5 @@
-import React,{useState,useEffect} from 'react';
-import {States,Map,Items} from '../../India';
+import React,{useState} from 'react';
+import {States,Map} from '../../India';
 import {getLeads,verifylead,removeleadbyadmin} from '../../requests';
 import Loading from '../Loading';
 import moment from 'moment';
@@ -91,7 +91,7 @@ async function search()
 if(loading)
 {
 
-  return <Loading/>;
+  return <><Header/><Loading/></>;
 }
 
   return (
@@ -105,11 +105,11 @@ if(loading)
         <div className="input-group-prepend">
           <label className="input-group-text" htmlFor="inputGroupSelect01">State</label>
         </div>
-        <select className="custom-select"  id="inputGroupSelect01" name="state" onChange={onStateChange}> 
+        <select className="custom-select"  value={state} id="inputGroupSelect01" name="state" onChange={onStateChange}> 
          
           {
             States.map((val)=>{
-              return <option  selected={state===val}value={val} key={val}>{val}</option>
+              return <option  value={val} key={val}>{val}</option>
             })
           }
         </select>
@@ -125,7 +125,7 @@ if(loading)
       
       {
         districts.map((val)=>{
-          return <option selected={district===val} value={val} key={val}>{val}</option>
+          return <option  value={val} key={val}>{val}</option>
         })
       }
       </select>
@@ -226,8 +226,8 @@ function Card(props)
           {props.data.paid?<p class="card-text">💸 Paid</p>:<p class="card-text">🆓 Free</p>}
           <p class="card-text">{props.data.description}</p>
           <div className="btn-grp">
-          <button class="btn btn-success" onClick={()=>props.verify(props.data._id)}>{props.verifying==props.data._id?'Verifying...':'verify'}</button>
-          <button class="btn btn-danger" onClick={()=>props.remove(props.data._id)}>{props.removing==props.data._id?'Removing...':'remove'}</button>
+          <button class="btn btn-success" onClick={()=>props.verify(props.data._id)}>{props.verifying==props.data._id?'Verifying...':'Verify'}</button>
+          <button class="btn btn-danger" onClick={()=>props.remove(props.data._id)}>{props.removing==props.data._id?'Removing...':'Remove'}</button>
           </div>
           
         </div>

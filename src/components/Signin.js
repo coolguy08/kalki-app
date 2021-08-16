@@ -105,7 +105,7 @@ function Signin() {
 
     if(loading)//data is fetching
     {
-        return <Loading/>;
+        return <><Header/><Loading/></>;
     }
 
     if(logged_in)//if user is logged in
